@@ -55,11 +55,11 @@ class FirstViewController: UITableViewController {
     // MARK: Chameleon related
     func initChameleonColors() {
         
-        let randomFlatColor = UIColor.randomFlat
+        let randomFlatColor = UIColor.randomFlat()
         let randomFlatColorContract = ContrastColorOf(randomFlatColor, returnFlat: true)
         // Nav bar
         navigationController?.navigationBar.barTintColor = randomFlatColor
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: randomFlatColorContract]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: randomFlatColorContract]
         // Tab bar
         tabBarController?.tabBar.barTintColor = randomFlatColor
         tabBarController?.tabBar.tintColor = randomFlatColorContract
@@ -87,9 +87,9 @@ class FirstViewController: UITableViewController {
         darkerColorLabel.text = "Aa \u{25A0}"
         darkerColorLabel.textColor = randomFlatColor.darken(byPercentage: 0.5)
         // Gradient color
-        let firstRandomColor = UIColor.randomFlat
-        let secondRandomColor = UIColor.randomFlat
-        let thirdRandomColor = UIColor.randomFlat
+        let firstRandomColor = UIColor.randomFlat()
+        let secondRandomColor = UIColor.randomFlat()
+        let thirdRandomColor = UIColor.randomFlat()
         let gradientColor = GradientColor(.leftToRight, frame: gradientColorLabel.frame, colors: [firstRandomColor, secondRandomColor, thirdRandomColor])
         let gradientColorLargeFrame = GradientColor(.leftToRight, frame: gradientWithContrastLabel.frame, colors: [firstRandomColor, secondRandomColor, thirdRandomColor])
         gradientColorLabel.text = "Aa \u{25A0}"
@@ -119,7 +119,7 @@ class FirstViewController: UITableViewController {
         let green = Float(arc4random_uniform(256))/255.0
         let blue = Float(arc4random_uniform(256))/255.0
         
-        return UIColor(colorLiteralRed: red, green: green, blue: blue, alpha: 1.0)
+        return UIColor(_colorLiteralRed: red, green: green, blue: blue, alpha: 1.0)
     }
 }
 
